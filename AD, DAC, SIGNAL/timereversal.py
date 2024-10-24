@@ -26,7 +26,7 @@ plt.ylabel('x(n)')
 plt.grid()
 
 # Plot sinyal hasil pencerminan
-plt.subplot(2, 1, 1)
+plt.subplot(2, 1, 2)
 plt.stem(n_reversed, y, basefmt=" ")  # Menggunakan stem plot tanpa use_line_collection
 plt.title('Sinyal Hasil Pencerminan y(n) = x(-n)')
 plt.xlabel('n')
