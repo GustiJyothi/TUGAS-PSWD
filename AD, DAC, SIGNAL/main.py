@@ -49,67 +49,97 @@ x2_norm = normalisasi(x2)
 # Menjumlahkan sinyal setelah normalisasi
 x_sum_norm = x1_norm + x2_norm
 
-# Melakukan time reversal pada sinyal yang dinormalisasi
+# Melakukan perkalian sinyal
+x_product = x1 * x2
+
+# Melakukan time reversal pada sinyal yang dinormalisasi dan hasil perkalian
 x1_reversed = time_reversal(x1_norm)
 x2_reversed = time_reversal(x2_norm)
 x_sum_reversed = time_reversal(x_sum_norm)
+x_product_reversed = time_reversal(x_product)
 
-# Plot sinyal x1, x2, dan hasil penjumlahan setelah normalisasi
-plt.figure(figsize=(18, 6))
+# Plot sinyal x1, x2, hasil penjumlahan, dan hasil perkalian
+plt.figure(figsize=(18, 8))
 
-# Plot sinyal x1 dengan warna dan gaya berbeda
-plt.subplot(2, 3, 1)
+# Plot sinyal x1 yang dinormalisasi
+plt.subplot(3, 3, 1)
 ax = plt.gca()
 plt.stem(n, x1_norm, markerfmt='bo', linefmt='b--', basefmt='r-')
 label_batang(ax, n, x1_norm)
 plt.title('Sinyal x1(n) Normalisasi')
 plt.xlabel('n')
 plt.ylabel('x1(n)')
+plt.grid()
 
-# Plot sinyal x2 dengan warna dan gaya berbeda
-plt.subplot(2, 3, 2)
+# Plot sinyal x2 yang dinormalisasi
+plt.subplot(3, 3, 2)
 ax = plt.gca()
 plt.stem(n, x2_norm, markerfmt='rs', linefmt='r-.', basefmt='k-')
 label_batang(ax, n, x2_norm)
 plt.title('Sinyal x2(n) Normalisasi')
 plt.xlabel('n')
 plt.ylabel('x2(n)')
+plt.grid()
 
 # Plot hasil penjumlahan sinyal yang dinormalisasi
-plt.subplot(2, 3, 3)
+plt.subplot(3, 3, 3)
 ax = plt.gca()
 plt.stem(n, x_sum_norm, markerfmt='gd', linefmt='g:', basefmt='b-')
 label_batang(ax, n, x_sum_norm)
 plt.title('Penjumlahan Normalisasi x1(n) + x2(n)')
 plt.xlabel('n')
 plt.ylabel('x1(n) + x2(n)')
+plt.grid()
+
+# Plot hasil perkalian sinyal
+plt.subplot(3, 3, 4)
+ax = plt.gca()
+plt.stem(n, x_product, markerfmt='mo', linefmt='m--', basefmt='k-')
+label_batang(ax, n, x_product)
+plt.title('Hasil Perkalian x1(n) . x2(n)')
+plt.xlabel('n')
+plt.ylabel('x1(n) * x2(n)')
+plt.grid()
 
 # Plot sinyal x1 setelah time reversal
-plt.subplot(2, 3, 4)
+plt.subplot(3, 3, 5)
 ax = plt.gca()
 plt.stem(n, x1_reversed, markerfmt='bo', linefmt='b--', basefmt='r-')
 label_batang(ax, n, x1_reversed)
 plt.title('Time Reversal x1(n)')
 plt.xlabel('n')
 plt.ylabel('x1(-n)')
+plt.grid()
 
 # Plot sinyal x2 setelah time reversal
-plt.subplot(2, 3, 5)
+plt.subplot(3, 3, 6)
 ax = plt.gca()
 plt.stem(n, x2_reversed, markerfmt='rs', linefmt='r-.', basefmt='k-')
 label_batang(ax, n, x2_reversed)
 plt.title('Time Reversal x2(n)')
 plt.xlabel('n')
 plt.ylabel('x2(-n)')
+plt.grid()
 
 # Plot hasil penjumlahan sinyal yang dinormalisasi setelah time reversal
-plt.subplot(2, 3, 6)
+plt.subplot(3, 3, 7)
 ax = plt.gca()
 plt.stem(n, x_sum_reversed, markerfmt='gd', linefmt='g:', basefmt='b-')
 label_batang(ax, n, x_sum_reversed)
 plt.title('Time Reversal Penjumlahan x1(n) + x2(n)')
 plt.xlabel('n')
 plt.ylabel('x1(-n) + x2(-n)')
+plt.grid()
+
+# Plot hasil perkalian sinyal setelah time reversal
+plt.subplot(3, 3, 8)
+ax = plt.gca()
+plt.stem(n, x_product_reversed, markerfmt='mo', linefmt='m--', basefmt='k-')
+label_batang(ax, n, x_product_reversed)
+plt.title('Time Reversal Perkalian x1(n) . x2(n)')
+plt.xlabel('n')
+plt.ylabel('x1(-n) * x2(-n)')
+plt.grid()
 
 # Tampilkan plot
 plt.tight_layout()
